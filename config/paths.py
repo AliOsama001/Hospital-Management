@@ -7,6 +7,6 @@ CSV_DIR = os.path.join(DATA_DIR, "csv")
 ADMINISTRATOR_DIR = os.path.join(CSV_DIR, "administrator")
 DOCTOR_DIR = os.path.join(CSV_DIR, "doctor")
 PATIENT_DIR = os.path.join(CSV_DIR, "patient")
-PHARMACEUTICAL = os.path.join(CSV_DIR, "pharmaceutical")
+PHARMACEUTICAL_DIR = os.path.join(CSV_DIR, "pharmaceutical")
 
 os.makedirs(CSV_DIR, exist_ok=True)
