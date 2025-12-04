@@ -1,0 +1,10 @@
+{
+    "412400384": {
+        "password": "ali123",
+        "role": "patient"
+    },
+    "12345678": {
+        "password": "user1",
+        "role": "doctor"
+    }
+}
