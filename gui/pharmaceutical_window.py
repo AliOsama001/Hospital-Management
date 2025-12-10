@@ -3,6 +3,4 @@ import streamlit as st
 
 class Pharmaceutical_window:
     def __init__(self):
-        pass
-
-# st.title("Hello Pharmaceutical")
+        st.title("Hello Pharmaceutical")

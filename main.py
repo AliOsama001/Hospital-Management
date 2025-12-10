@@ -1,25 +1,27 @@
-from gui import Main_window
+from gui import *
 import streamlit as st
 
 st.set_page_config(
     page_title="Hospital Management",
-    page_icon="🏥"
+    page_icon="assets/hospital.png"
 )
 
-user = Main_window()
-options = ["Login", "Register", "Forget Password"]
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
 
+if "page" not in st.session_state:
+    st.session_state.page = "login"
 
-chosen = st.sidebar.radio("Choose option: ", options)
+if "id" not in st.session_state:
+    st.session_state.id = 0
 
-if chosen == options[0]:
-    user.login()
-elif chosen == options[1]:
-    user.register()
-elif chosen == options[2]:
-    # TODO: Implement forget password functionality
-    st.info("Forget Password functionality coming soon.")
-
-if "loggedIn" in st.session_state:
-    if st.session_state.role == "patient":
-        st.switch_page("pages/patient_window.py")
+if st.session_state.page == "login":
+    user = Main_window()
+elif st.session_state.page == "patient":
+        st.session_state.user = Patient_window()
+elif st.session_state.page == "doctor":
+        st.session_state.user = Doctor_window()
+elif st.session_state.page == "pharmaceutical":
+        st.session_state.user = Pharmaceutical_window()
+elif st.session_state.page == "administrator":
+        st.session_state.user = Administrator_window()
