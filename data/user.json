@@ -6,9 +6,5 @@
     "12345678": {
         "password": "user1",
         "role": "doctor"
-    },
-    "987654321": {
-        "password": "user1",
-        "role": "pharmaceutical"
     }
 }

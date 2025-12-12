@@ -2,8 +2,8 @@ from gui import *
 import streamlit as st
 
 st.set_page_config(
-    page_title="Hospital Management",
-    page_icon="assets/hospital.png"
+    page_title="Clinic Management",
+    page_icon="assets/hospital.png",
 )
 
 if "logged_in" not in st.session_state:
@@ -21,7 +21,5 @@ elif st.session_state.page == "patient":
         st.session_state.user = Patient_window()
 elif st.session_state.page == "doctor":
         st.session_state.user = Doctor_window()
-elif st.session_state.page == "pharmaceutical":
-        st.session_state.user = Pharmaceutical_window()
 elif st.session_state.page == "administrator":
         st.session_state.user = Administrator_window()

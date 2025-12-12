@@ -12,13 +12,6 @@ class Patient_window:
                 self.edit()
             elif pat_chosen == pat_options[2]:
                 self.show()
-            st.sidebar.space("large")
-            st.sidebar.space("large")
-            st.sidebar.space("large")
-            st.sidebar.space("large")
-            st.sidebar.space("large")
-            st.sidebar.space("large")
-            st.sidebar.space("large")
             if st.sidebar.button("logout"):
                 st.session_state.logged_in = False
                 st.session_state.page = "login"
