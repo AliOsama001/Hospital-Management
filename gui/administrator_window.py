@@ -3,4 +3,5 @@ import streamlit as st
 
 class Administrator_window:
     def __init__(self):
-        st.title("Hello Admin")
+        # TODO
+        st.info("We are Working here!")

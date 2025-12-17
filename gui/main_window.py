@@ -1,5 +1,5 @@
+from services import User_service
 import streamlit as st
-from data import User_repo
 
 class Main_window:
     def __init__(self):
@@ -19,18 +19,19 @@ class Main_window:
                 id = st.text_input("ID")
                 password = st.text_input("Password", type="password")
                 if st.form_submit_button("Login"):
-                    st.session_state.userRepo = User_repo()
-                    users = st.session_state.userRepo.loadUsers()
-                    if id in users and users[id]["password"] == password:
+                    userService = User_service()
+                    page = userService.login(id, password)
+                    if page != "":
+                        st.session_state.logged_in = True
                         st.session_state.id = id
-                        st.session_state.loggedIn = True
-                        st.session_state.page = users[id]["role"]
-                        st.success("🎉 Login successful!")
-                    else :
-                        st.session_state.loggedIn = False
+                        st.session_state.page = page
+                        st.success("Signed in Successfully")
+                        st.rerun()
+                    else:
+                        st.session_state.logged_in = False
+                        st.session_state.id = 0
                         st.session_state.page = "login"
-                        st.session_state.id = ""
-                        st.error("Wrong ID or Password")
+                        st.error("Invalid ID or Password")
         with right:
             st.space("large")
             st.space("large")
@@ -49,9 +50,8 @@ class Main_window:
                 id = st.text_input("Your ID")
                 password = st.text_input("Your Password", type="password")
             if st.form_submit_button("Submit"):
-                st.session_state.users = User_repo()
-                if st.session_state.users.isExist(id):
-                    st.error("Your ID is already Exist")
-                else:
-                    st.session_state.users.saveUser(id, password, name, age, phone)
-                    st.success("The account was successfully created.")
+                userService = User_service()
+                if userService.regiter(id, password, name, age, phone):
+                    st.success("Your account has been created successfully")
+                else :
+                    st.error("This ID is already registered")

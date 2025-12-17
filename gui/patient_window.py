@@ -1,35 +1,37 @@
 from services import Patient_service
+from utils import logout
 import streamlit as st
 
 class Patient_window:
     def __init__(self):
             st.session_state.patientService = Patient_service(int(st.session_state.id))
-            pat_options = ["Book an appointment", "Edit an appointment", "Show Prescription"]
-            pat_chosen = st.sidebar.radio("Choose Option:", pat_options)
-            if pat_chosen == pat_options[0]:
+            patient_options = ["Book an appointment", "Edit an appointment", "Show Prescription"]
+            patient_chosen = st.sidebar.radio("Choose Option:", patient_options)
+            if patient_chosen == patient_options[0]:
                 self.book()
-            elif pat_chosen == pat_options[1]:
+            elif patient_chosen == patient_options[1]:
                 self.edit()
-            elif pat_chosen == pat_options[2]:
+            elif patient_chosen == patient_options[2]:
                 self.show()
             if st.sidebar.button("logout"):
-                st.session_state.logged_in = False
-                st.session_state.page = "login"
+                logout()
 
     def book(self):
-        st.title("Book an appointment")
-        specialization = ["barin", "bones"]
-        choose = st.selectbox("Choose Specialization:", specialization)
-        if st.button("Submit"):
-            if st.session_state.patientService.bookSchedule(choose):
-                st.success("Booking Successful")
-            else:
-                st.error("You already have a booking")
+        # TODO
+        st.info("We are Working here!")
 
     def edit(self):
         # TODO
         st.info("We are Working here!")
 
     def show(self):
-        # TODO
-        st.info("We are Working here!")
+        st.title("Prescription")
+        left, right = st.columns(2)
+        with left :
+            with st.container(border=True):
+                pass
+        with right :
+            with st.container(border=True):
+                pass
+        with st.container(border=True):
+                pass
