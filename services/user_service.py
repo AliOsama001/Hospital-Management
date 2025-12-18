@@ -16,6 +16,6 @@ class User_service:
             return False
         self.userRepo.addAccount(id, password, "patient")
         self.userRepo.saveChanges()
-        self.patientRepo.addPatient(id, name, age, phone, "", "", "", "", "", "")
+        self.patientRepo.addPatient(id, name, age, phone, "", "", "", "", "", "", "")
         self.patientRepo.saveChanges()
         return True

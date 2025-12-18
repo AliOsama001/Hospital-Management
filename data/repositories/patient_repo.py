@@ -8,8 +8,8 @@ class Patient_repo:
     def getPatient(self, id):
         return self.patients[self.patients["id"] == id].to_dict()
 
-    def addPatient(self, id, name, phone, age, specialization, notes, medicine, date, doctor, nextAppointment):
-        self.patients.loc[-1] = [id, name, phone, age, specialization, notes, medicine, date, doctor, nextAppointment]
+    def addPatient(self, id, name, phone, age, specialization, notes, medicine, date, doctor, doctorPhone, nextAppointment):
+        self.patients.loc[-1] = [id, name, phone, age, specialization, notes, medicine, date, doctor, doctorPhone, nextAppointment]
 
     def saveChanges(self):
         self.patients.to_csv(PATIENT_CSV, index=False)

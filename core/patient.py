@@ -9,25 +9,29 @@ class Patient(Person):
         self.medicine = patient["medicine"]
         self.date = patient["date"]
         self.doctor = patient["doctor"]
+        self.doctorPhone = patient["doctorPhone"]
         self.nextAppointments = patient["nextAppointment"]
 
     def getAge(self):
         return self.age
 
-    def getDoctor(self):
-        return self.doctor
-
     def getSpecialization(self):
         return self.specialization
 
-    def getDate(self):
-        return self.date
-    
+    def getNotes(self):
+        return self.notes
+
     def getMedicine(self):
         return self.medicine
 
-    def getNotes(self):
-        return self.notes
+    def getDate(self):
+        return self.date
+
+    def getDoctor(self):
+        return self.doctor
+
+    def getDoctorPhone(self):
+        return self.doctorPhone
 
     def getAppointments(self):
         return self.next_appointment
