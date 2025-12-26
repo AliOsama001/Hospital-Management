@@ -3,14 +3,14 @@ from .person import Person
 class Patient(Person):
     def __init__(self, patient:dict):
         super().__init__(patient)
-        self.age = patient["age"]
-        self.specialization = patient["specialization"]
-        self.notes = patient["notes"]
-        self.medicine = patient["medicine"]
-        self.date = patient["date"]
-        self.doctor = patient["doctor"]
-        self.doctorPhone = patient["doctorPhone"]
-        self.nextAppointments = patient["nextAppointment"]
+        self.age = patient["age"][0]
+        self.specialization = patient["specialization"][0]
+        self.notes = patient["notes"][0]
+        self.medicine = patient["medicine"][0]
+        self.date = patient["date"][0]
+        self.doctor = patient["doctor"][0]
+        self.doctorPhone = patient["doctorPhone"][0]
+        self.nextAppointment = patient["nextAppointment"][0]
 
     def getAge(self):
         return self.age
@@ -33,5 +33,11 @@ class Patient(Person):
     def getDoctorPhone(self):
         return self.doctorPhone
 
-    def getAppointments(self):
-        return self.next_appointment
+    def getAppointment(self):
+        return self.nextAppointment
+
+    def setAppointment(self, date):
+        self.nextAppointment = date
+
+    def setSpecialization(self, specialization):
+        self.specialization = specialization
