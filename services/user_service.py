@@ -9,7 +9,7 @@ class User_service:
     def login(self, id, password):
         if self.userRepo.isExist(id) and password == self.userRepo.getPassword(id):
             return self.userRepo.getRole(id)
-        return ""
+        return None
 
     def regiter(self, id, password, name , age , phone):
         if self.userRepo.isExist(id):
