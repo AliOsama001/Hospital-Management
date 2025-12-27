@@ -4,6 +4,8 @@ from services import Patient_service
 if 'patientService' not in st.session_state:
     st.session_state.patientService = Patient_service(int(st.session_state.id))
 
+st.logo("assets/patient.png")
+
 st.title("Book an Appointment")
 specializations = st.session_state.patientService.getSpecializations()
 specialization = st.selectbox("Choose Specialization:", specializations)

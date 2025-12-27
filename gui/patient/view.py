@@ -4,6 +4,8 @@ from services import Patient_service
 if 'patientService' not in st.session_state:
     st.session_state.patientService = Patient_service(int(st.session_state.id))
 
+st.logo("assets/patient.png")
+
 st.title("Prescription")
 st.divider()
 left, right = st.columns(2)
@@ -20,6 +22,7 @@ with right :
         st.markdown("**Age**: "+ str(st.session_state.patientService.patient.getAge()))
         st.markdown("**Next Appointment**: "+ str(st.session_state.patientService.patient.getAppointment()))
 with st.container(border=True):
+    st.subheader("Visit Information")
     st.markdown("**Medicine**:")
     st.write("    ",st.session_state.patientService.patient.getMedicine())
     st.space("large")

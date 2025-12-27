@@ -4,6 +4,8 @@ from services import Patient_service
 if 'patientService' not in st.session_state:
     st.session_state.patientService = Patient_service(int(st.session_state.id))
 
+st.logo("assets/patient.png")
+
 st.title("Edit an Appointment")
 nextAppointment = st.session_state.patientService.patient.getAppointment()
 if nextAppointment == "":

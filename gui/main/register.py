@@ -14,7 +14,7 @@ with st.form("Register Form"):
         password = st.text_input("Your Password", type="password")
     if st.form_submit_button("Submit"):
         userService = User_service()
-        if userService.regiter(id, password, name, age, phone):
+        if userService.regiter(id, password, name, phone, age):
             st.success("Your account has been created successfully")
         else:
             st.error("This ID is already registered")

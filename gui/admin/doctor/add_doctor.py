@@ -1,6 +1,9 @@
 from services import Administrator_service
 import streamlit as st
 
+st.logo("assets/admin.png")
+st.title("Add Doctor")
+
 left, right = st.columns(2)
 with left:
     id = st.text_input("Enter doctor ID")

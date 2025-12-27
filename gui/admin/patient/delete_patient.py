@@ -1,6 +1,9 @@
 from services import Administrator_service
 import streamlit as st
 
+st.logo("assets/admin.png")
+st.title("Delete Patient")
+
 id =  st.text_input("Enter patient ID to delete")
 if st.button("Delete Patient"):
     patient = Administrator_service()

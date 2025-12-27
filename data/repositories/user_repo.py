@@ -14,10 +14,10 @@ class User_repo:
 
     def getPassword(self, id):
         return self.users[id]["password"]
-    
+
     def getRole(self, id):
         return self.users[id]["role"]
-    
+
     def addAccount(self, id, password, role):
         self.users[id] = {
             "password": password,
@@ -27,3 +27,7 @@ class User_repo:
     def saveChanges(self):
         with open(USER_JSON, "w") as f:
             json.dump(self.users,f)
+
+    def updatePassword(self, id, new_password):
+        if id in self.users:
+            self.users[id]["password"] = new_password

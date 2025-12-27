@@ -4,15 +4,15 @@ import time
 
 class Doctor_service:
     def __init__(self, id):
+        self.patientID = None
         self.doctorRepo = Doctor_repo()
         self.doctor = Doctor(self.doctorRepo.getDoctor(id))
         self.scheduleRepo = Schedule_repo()
-        try:
-            self.patentID, self.scheduleInfo = self.scheduleRepo.nextPatient(self.doctor.getSpecialization())
-        except:
-            self.patentID = None
+        if not self.scheduleRepo.isThereP(self.doctor.getSpecialization()):
+            return
+        self.patientID, self.scheduleInfo = self.scheduleRepo.nextPatient(self.doctor.getSpecialization())
         self.patientRepo = Patient_repo()
-        self.pateint = Patient(self.patientRepo.getPatient(int(self.patentID)))
+        self.pateint = Patient(self.patientRepo.getPatient(int(self.patientID)))
         self.setPatientInfo()
 
     def setPatientInfo(self):
@@ -39,10 +39,10 @@ class Doctor_service:
         self.patientRepo.saveChanges()
 
     def nextPatient(self):
-        self.patentID, self.scheduleInfo = self.scheduleRepo.nextPatient(self.doctor.getSpecialization())
-        if self.patentID is None:
-            return None
-        self.scheduleRepo.deleteBook(self.patentID)
+        self.scheduleRepo.deleteBook(self.patientID)
         self.scheduleRepo.saveChanges()
-        self.pateint = Patient(self.patientRepo.getPatient(self.patentID))
+        if not self.scheduleRepo.isThereP(self.doctor.getSpecialization()):
+            return None
+        self.patientID, self.scheduleInfo = self.scheduleRepo.nextPatient(self.doctor.getSpecialization())
+        self.pateint = Patient(self.patientRepo.getPatient(self.patientID))
         self.setPatientInfo()

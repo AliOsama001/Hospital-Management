@@ -39,3 +39,9 @@ class Schedule_repo:
     def saveChanges(self):
         with open(SCHEDULE_JSON, "w") as f:
             json.dump(self.schedule, f)
+    
+    def isThereP(self, specialization):
+        for i in self.schedule:
+            if self.schedule[i]["specialization"] == specialization:
+                return True
+        return False

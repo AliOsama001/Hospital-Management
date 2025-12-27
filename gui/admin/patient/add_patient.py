@@ -1,6 +1,8 @@
 from services import Administrator_service
 import streamlit as st
 
+st.logo("assets/admin.png")
+st.title("Add Patient")
 
 left, right = st.columns(2)
 with left:
