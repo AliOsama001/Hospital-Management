@@ -41,3 +41,18 @@ class Patient(Person):
 
     def setSpecialization(self, specialization):
         self.specialization = specialization
+
+    def setDoctor(self, doctor):
+        self.doctor = doctor
+
+    def setDoctorPhone(self, phone):
+        self.doctorPhone = phone
+
+    def setNotes(self, notes):
+        self.notes = notes
+
+    def setMedicine(self, medicine):
+        self.medicine = medicine
+
+    def setDate(self, date):
+        self.date = date

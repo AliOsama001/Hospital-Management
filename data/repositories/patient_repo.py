@@ -14,5 +14,8 @@ class Patient_repo:
     def change(self, id, column, value):
         self.patients.loc[self.patients["id"] == id, column] = value
 
+    def updatePatient(self, id, name, phone, age, specialization, notes, medicine, date, doctor, doctorPhone, nextAppointment):
+        self.patients.loc[self.patients["id"] == id] = [id, name, phone, age, specialization, notes, medicine, date, doctor, doctorPhone, nextAppointment]
+
     def saveChanges(self):
         self.patients.to_csv(PATIENT_CSV, index=False)

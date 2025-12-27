@@ -46,6 +46,7 @@ class Patient_window:
 
     def show(self):
         st.title("Prescription")
+        st.divider()
         left, right = st.columns(2)
         with left :
             with st.container(border=True):

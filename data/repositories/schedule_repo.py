@@ -9,6 +9,13 @@ class Schedule_repo:
         except:
             self.schedule = {}
 
+    def nextPatient(self, specialization):
+        if len(self.schedule) == 0:
+            return None
+        for i in self.schedule:
+            if self.schedule[i]["specialization"] == specialization:
+                return i, self.schedule[i]
+
     def addBook(self, patientID, specialization, doctor, date):
         self.schedule[patientID] = {
             "specialization": specialization,
