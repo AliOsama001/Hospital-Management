@@ -9,7 +9,7 @@ class User_repo:
         except:
             self.users = {}
 
-    def isExist(self, id):
+    def isExist(self, id:str):
         return id in self.users
 
     def getPassword(self, id):
@@ -31,3 +31,7 @@ class User_repo:
     def updatePassword(self, id, new_password):
         if id in self.users:
             self.users[id]["password"] = new_password
+
+    def deleteAccount(self, id):
+        if self.isExist(id):
+            del self.users[id]

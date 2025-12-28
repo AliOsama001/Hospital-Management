@@ -1,16 +1,23 @@
-from services import Administrator_service
+from services import Administrator_service, User_service
 import streamlit as st
+
+if "administratorService" not in st.session_state:
+    st.session_state.administratorService = Administrator_service()
 
 st.logo("assets/admin.png")
 st.title("Add Patient")
 
 left, right = st.columns(2)
 with left:
-    id = st.text_input("Enter patient ID")
-    name = st.text_input("Enter patient name")
+    name = st.text_input("Your Name:")
+    age = st.number_input("Your Age:", step=1, min_value=0, max_value=100)
+    phone = st.text_input("Your Phone:")
 with right:
-    phone = st.text_input("Enter patient phone")
-    if st.button("Add Patient"):
-        patient = Administrator_service()
-        result = patient.add_patient(id, name, phone)
-        st.success(result)
+    id = st.text_input("Your ID")
+    password = st.text_input("Your Password", type="password")
+if st.button("Add Patient"):
+    userService = User_service()
+    if userService.regiter(id, password, name, phone, age):
+        st.success("Your account has been created successfully")
+    else:
+        st.error("This ID is already registered")

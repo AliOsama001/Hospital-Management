@@ -29,3 +29,6 @@ class User_service:
             self.userRepo.saveChanges()
             return True
         return False
+
+    def addDoc(self, id, password):
+        self.userRepo.addAccount(id, password, "doctor")

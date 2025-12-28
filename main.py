@@ -11,7 +11,6 @@ role = st.session_state.role
 
 logout_page = st.Page("gui/main/logout.py", title="Logout", icon=":material/logout:")
 change_password_page = st.Page("gui/main/change_password.py", title="Change Password", icon=":material/settings:")
-
 book_patinent_page = st.Page("gui/patient/book.py", title="Book Appointment", default=(role == "patient"))
 delete_appointment_page = st.Page("gui/patient/delete.py", title="Delete Appointment")
 view_appointments_page = st.Page("gui/patient/view.py", title="View Appointments")

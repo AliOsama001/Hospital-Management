@@ -11,9 +11,6 @@ class Doctor_repo:
     def saveChanges(self):
         self.doctors.to_csv(DOCTOR_CSV, index=False)
 
-    def loadDoctors(self):
-        return self.doctors[["name", "phone", "specialization", "workHours"]].to_dict()
-
     def getSpecializations(self):
         return self.doctors["specialization"].values
 

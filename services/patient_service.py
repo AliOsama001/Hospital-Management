@@ -25,7 +25,7 @@ class Patient_service:
         self.patientRepo.change(self.patient.getID(), "nextAppointment", date)
         self.patientRepo.saveChanges()
         return True
-    
+
     def deleteSchedule(self):
         self.schedule.setSpecialization("")
         self.schedule.setDoctor("")

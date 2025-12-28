@@ -20,7 +20,6 @@ class Doctor_service:
         self.pateint.setDoctorPhone(self.doctor.getPhone())
         self.pateint.setSpecialization(self.doctor.getSpecialization())
         self.pateint.setDate(time.strftime("%Y-%m-%d"))
-        self.pateint.setDoctorPhone(self.doctor.getPhone())
 
     def savePatientInfo(self, notes, medicine, nextAppointment):
         self.patientRepo.updatePatient(

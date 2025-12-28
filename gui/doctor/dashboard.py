@@ -3,7 +3,6 @@ from services import Doctor_service
 from streamlit_lottie import st_lottie
 import json
 
-
 def load_lottiefile(filepath: str):
     try:
         with open(filepath, "r") as f:

@@ -1,1 +1,46 @@
-{"101": {"password": "user1", "role": "patient"}, "102": {"password": "user2", "role": "patient"}, "103": {"password": "user3", "role": "patient"}, "104": {"password": "user4", "role": "patient"}, "105": {"password": "user5", "role": "patient"}, "11001": {"password": "doc1", "role": "doctor"}, "11002": {"password": "doc2", "role": "doctor"}, "11003": {"password": "doc3", "role": "doctor"}, "11004": {"password": "doc3", "role": "doctor"}, "11005": {"password": "doc3", "role": "doctor"}, "1010": {"password": "user6", "role": "patient"}, "1": {"password": "admin1", "role": "administrator"}}
+{
+    "101": {
+        "password": "user1",
+        "role": "patient"
+    },
+    "102": {
+        "password": "user2",
+        "role": "patient"
+    },
+    "103": {
+        "password": "user3",
+        "role": "patient"
+    },
+    "104": {
+        "password": "user4",
+        "role": "patient"
+    },
+    "105": {
+        "password": "user5",
+        "role": "patient"
+    },
+    "11001": {
+        "password": "doc1",
+        "role": "doctor"
+    },
+    "11002": {
+        "password": "doc2",
+        "role": "doctor"
+    },
+    "11003": {
+        "password": "doc3",
+        "role": "doctor"
+    },
+    "11004": {
+        "password": "doc3",
+        "role": "doctor"
+    },
+    "11005": {
+        "password": "doc3",
+        "role": "doctor"
+    },
+    "1": {
+        "password": "admin1",
+        "role": "administrator"
+    }
+}
