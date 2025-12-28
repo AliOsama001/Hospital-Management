@@ -4,7 +4,6 @@ import streamlit as st
 if "administratorService" not in st.session_state:
     st.session_state.administratorService = Administrator_service()
 
-st.logo("assets/admin.png")
 st.title("Delete Patient")
 
 id =  st.text_input("Enter patient ID to delete")

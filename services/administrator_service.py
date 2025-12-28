@@ -18,7 +18,7 @@ class Administrator_service:
         self.userRepo.addAccount(id, password, "doctor")
         self.userRepo.saveChanges()
         if id in self.doc["id"].values:
-            return f"Error: ID {id} already exists"
+            return False
         new_doctor = pd.DataFrame([{
             "id": id,
             "name": name,
@@ -28,7 +28,7 @@ class Administrator_service:
         }])
         self.doc = pd.concat([self.doc, new_doctor], ignore_index=True)
         save_csv(self.doc, DOCTOR_CSV)
-        return f"Doctor added successfully with ID: {id}"
+        return True
 
     def delete_doctor(self, id):
         self.userRepo.deleteAccount(id)
